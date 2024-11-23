@@ -1,0 +1,69 @@
+type Venue {
+    id: ID!
+    name: String!
+    venueTypeId: ID!
+    city: String!
+    country: String!
+    street: String!
+    streetNumber: String!
+    zipCode: String!
+    machineIds: [ID!]
+    machines: [Machine]
+    venueType: VenueType
+}
+
+type VenueType {
+    id: ID!
+    name: String!
+    icon: String!
+    venueIds: [ID!]
+    venues: [Venue]
+}
+
+type Machine {
+    id: ID!
+    name: String!
+    typeId: ID!
+    manufacturerId: ID!
+    venueIds: [ID!]
+    venues: [Venue]
+    manufacturer: Manufacturer
+    type: Type
+}
+
+type Manufacturer {
+    id: ID!
+    name: String!
+    machineIds: [ID!]
+    machines: [Machine]
+}
+
+type Type {
+    id: ID!
+    name: String!
+    icon: String
+    machineIds: [ID!]
+    machines: [Machine]
+}
+
+type Query {
+    getAllVenues: [Venue!]
+    getAllVenueTypes: [VenueType!]
+    getAllMachines: [Machine!]
+    getAllManufacturers: [Manufacturer!]
+    getAllTypes: [Type!]
+    getVenue(id: ID!): Venue
+    getVenueType(id: ID!): VenueType
+    getMachine(id: ID!): Machine
+    getManufacturer(id: ID!): Manufacturer
+    getType(id: ID!): Type
+}
+
+type Mutation {
+    createVenue(name: String!, venueTypeId: ID!, city: String!, country: String!, street: String!, streetNumber: String!, zipCode: String!, machineIds: [ID!]): Venue
+    createVenueType(name: String!, icon: String!, venueIds: [ID!]): VenueType
+    createMachine(name: String!, typeId: ID!, manufacturerId: ID!, venueIds: [ID!]): Machine
+    createManufacturer(name: String!, machineIds: [ID!]): Manufacturer
+    addMachineToVenue(venueId: String!, machineId: String!): Venue
+    removeMachineFromVenue(venueId: String!, machineId: String!): Venue
+}
