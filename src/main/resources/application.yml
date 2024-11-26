@@ -1,0 +1,22 @@
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include:
+          - health
+          - info
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+spring:
+  profiles:
+    active: ${SPRING_PROFILE}
+  doc:
+    swagger-ui:
+      path: /swagger-ui.html
+  graphql:
+    graphiql:
+      enabled: true

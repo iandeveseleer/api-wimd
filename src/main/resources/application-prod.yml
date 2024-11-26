@@ -1,0 +1,25 @@
+application:
+  cors:
+    allowed:
+      origin:
+        domains: ${ALLOWED_DOMAINS}
+server:
+  port: 443
+  security:
+    require-ssl: true
+  ssl:
+    key-store: "${KEYSTORE_PATH}keystore.p12"
+    key-store-password: "${KEYSTORE_PASSWORD}"
+    keyStoreType: PKCS12
+    keyAlias: tomcat
+springdoc:
+  api-docs:
+    enabled: false
+spring:
+  data:
+    mongodb:
+      uri: "${MONGODB_URI}"
+      database: ${MONGODB_DATABASE}
+      ssl:
+        enabled: true
+        invalidHostNameAllowed: true

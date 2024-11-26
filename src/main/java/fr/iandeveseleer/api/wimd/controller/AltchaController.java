@@ -17,7 +17,7 @@ import java.util.Map;
 @Setter
 public class AltchaController {
 
-    @Value("${ALTCHA_HMAC_KEY:secret-key}") // Default value if env variable is not set
+    @Value("${application.aptcha.hmac-key:secret-key}")
     private String hmacKey;
 
     @GetMapping("/challenge")

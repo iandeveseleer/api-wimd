@@ -26,5 +26,4 @@
 ### VS Code ###
 .vscode/
 *.txt
-service_account.json
-/src/main/resources/application-dev.yml
+src/main/resources/application-dev.yml
