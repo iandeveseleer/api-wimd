@@ -1,9 +1,19 @@
 application:
+  aptcha:
+    hmac-key: ${HMAC_KEY}
   cors:
     allowed:
       origin:
         domains: ${ALLOWED_DOMAINS}
+  mapbox:
+    access:
+      token: ${MAPBOX_TOKEN}
+    username: ${MAPBOX_USERNAME}
+    style:
+      id: ${MAPBOX_STYLE}
 server:
+  http:
+    port: 0
   port: 443
   security:
     require-ssl: true
@@ -12,6 +22,7 @@ server:
     key-store-password: "${KEYSTORE_PASSWORD}"
     keyStoreType: PKCS12
     keyAlias: tomcat
+    enabled: true
 springdoc:
   api-docs:
     enabled: false
